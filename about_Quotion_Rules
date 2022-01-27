@@ -1,0 +1,71 @@
+#powershell에서 작은따옴표(') 와 큰따옴표 (")를 사용하는 규칙 설명 
+
+큰 따옴표로 묶인 문자열은 확장 가능한 문자열 이다. 
+$ 기호 뒈에 오는 변수 이름은 $ 문자열을 처리 하기 위해 명령에 전달하기 전에 변수의 값으로 대체 된다.
+
+예제1
+$i = 5
+"The value of $i is $i."   ->   The value of 5 is 5.  로 출력 된다. 
+
+큰따옴표에 붙은 문자열에서 식이 계산되고 결과가 문자열에 삽입된다. 
+예시2
+"The value of $(2+3) is 5."   ->  The value of 5 is 5.
+
+
+작은따옴표로 묶인 문자열은 축자 문자열 이다. 
+문자열은 입력 한대로 정확하게 명령에 전달된다. 대체가 수행되지 않는다는 의미입니다. 
+
+예시3
+$i = 5
+'The value of $i is $i.'   ->   The value $i is $i.  로 출력 된다. 
+
+작은따옴표에 붙은 문자열의 식은 계산되지 않는다. 리터럴로 해석되어 다음과 같은 예시를 들 수 있다. 
+예시4
+'The value of $(2+3) is 5.'    ->  The value of $(2+3) is 5.
+
+
+※ 큰따옴표로 묶인 문자열에서 변수 값을 대체하지 않도록 하려면 powershell 이스케이프 문자인 backtick문자(`)(ASCII 96)를 사용한다. 
+(= powerShell 문자열에서 $ 변수를 그대로 출력하고 싶다면 backtick(`)를 사용하면 된다) 
+
+예시5
+$i = 5
+"The value of `$i is $i."  ->  The value $i is 5.
+
+
+다음은 문자열 출력시 " " 와 ' ' 가 출력되게 만드는 방법이다 .
+
+큰따옴표를 문자열에 표시하려면 잔체 문자열을 작은 따옴표로 묶는다. 
+'As they say, "live and learn."'   ->   As they say, "live and learn."
+
+혹은 
+
+작은따옴표로 묶은 문자열을 큰따옴표로 묶을 수 있다
+"As they say, 'live and learn.'"   ->   As they say, 'live and learn.'
+
+혹은
+
+큰따옴표가 있는 구를 큰따옴표로 겹치게 지정한다. 
+"As they say, ""live and learn."""   ->   As they say, "live and learn."
+
+혹은
+
+작은따옴표로 묶은 문자열에 작은따옴표를 포함하려면 두번 역속 작은 따옴표를 사용한다. 
+'don''t'   ->   don't
+
+PowerShell에서 큰따옴표를 문자 그대로 해석하도록 하려면 backtick(`) 문자를 사용할 수 있다. 
+예시
+PS> "Use a quotation mark (`") to begin a string."
+Use a quotation mark (") to begin a string.
+
+PS> 'Use a quotation mark (`") to begin a string.'
+Use a quotation mark (`") to begin a string.
+
+작은 따옴표로 묶인 문자열의 내용이 문자 그대로 해석되기 때문에 backtick(`)answksms 리터럴 문자로 처리되고 출력에 표시된다. 
+
+
+
+
+
+
+
+
