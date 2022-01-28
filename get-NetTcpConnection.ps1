@@ -20,6 +20,5 @@ Foreach($i in $connections){
         $i
     }
 }
-![image](https://user-images.githubusercontent.com/45279355/151465305-925b5a7e-85ad-4621-87e2-c805cfddd4d0.png)
-
+![1](https://user-images.githubusercontent.com/45279355/151465598-82f82e85-9653-449e-9d21-e96cb04839f8.png)
 
