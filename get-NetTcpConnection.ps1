@@ -10,4 +10,14 @@ Get-NetTCPConnection -State Listen | Select-Object -Property LocalPort,State
 #Localport로 sort하기
 Get-NetTCPConnection -State Listen | Select-Object -Property LocalPort,State | Sort-Object Localport
 
+#특정 대상 ip 주소에 대해
+
+$remoteip = "0.0.0.0"
+$connections = Get-NetTCPConnection
+Foreach($i in $connections){
+    if ($i.RemoteAddress -eq $remoteip)
+    {
+        $i
+    }
+}
 
