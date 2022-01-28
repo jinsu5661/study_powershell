@@ -1,0 +1,43 @@
+#powershell을 사용하여 텍스트 파일에서 읽기
+  $FILE = get-Content "C:\경로\파일명.txt
+
+# foreach문을 사용하여 텍스트 파일 읽기
+  $FILE = Get-Content "C:\경로\파일명.txt"
+    foreach ($LINE in $FILE)
+    {
+      Write-Output "The txt is : $LINE"
+    }
+
+
+# 텍스트 파일에서 읽고 출력 값을 테이블로 작성 
+  $FILE = Get-content "C:\경로\파일명.txt"
+    foreach ($LINE in $FILE)
+    {
+      $LINE | Select-object -Property @{name='NAME';expression={$LINE}}
+     }
+     
+     
+
+# 텍스트 파일에서 읽고 배열에 값을 저장 
+  $FILE = Get-content "C:\경로\파일명.txt"
+  $results=@()
+  
+  foreach($LINE in $FILE)
+  {
+    $out=Write-Output "The name is : $LINE"
+    $results+=$out
+  }
+  $results[2]
+  
+  
+#텍스트 파일에서 읽고 배열에 값을 저장
+    $FILE = Get-content "C:\경로\파일명.txt"
+    $results=@()
+
+    foreach ($LINE in $FILE)
+    {
+      $out=$LINE | Select-object -Property @{name='NAME';expression={$LINE}}
+      $results+=$out
+     }
+     $results
+
