@@ -1,0 +1,19 @@
+# study_powershell
+#you need vmware module 
+
+get-module VMware.HV.Helper 
+
+Connect-HVServer -Server "horizon 주소" -user "id@domain" -Password "패스워드"
+
+$vm_list = Get-HVMachineSummary -PoolName "풀 이름"
+
+foreach($vm in $vm_list){
+  $vm_name = $vm.Base.Name 
+  
+  $assigned_user_data = $vm.NamesData.UserName 
+  $user_name= $assigned_user_data | %{$_.split("\")[1];}
+  
+  $results = $vm_name + ',' + $user_name | out-file c:\text.txt -append 
+}
+
+DisConnect-HVServer * -Confirm:$false
