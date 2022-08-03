@@ -28,3 +28,8 @@ VMware PowerCLI - Cmdlet Reference Guide  : https://developer.vmware.com/docs/po
 VMware PowerCLI - Compatibility Matrix    : https://vdc-download.vmware.com/vmwb-repository/dcr-public/1f965bde-564c-4593-a63c-b29d2ea3d401/d91027aa-e3ef-4467-a573-d76f66bdb6ac/powercli123-compat-matrix.html
 VMware PowerCLI - GitHub Example Scripts  : https://github.com/vmware/PowerCLI-Example-Scripts/tree/master/Modules
 
+
+$vm.guest | Format-List 
+
+
+
