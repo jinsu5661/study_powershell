@@ -1,0 +1,30 @@
+#download VMware PowerCLI 
+> https://developer.vmware.com/web/tool/vmware-powercli
+
+#install Module
+#https://developer.vmware.com/docs/13638/powercli-12-3-0-user-s-guide/GUID-16EBB87F-E6DF-430C-AFE2-4737B24247A0.html
+> Install-Module 
+
+#You must set the exeution Policy of WIndows Powerchell to RemoteSigned. 
+> Set-ExecutionPolicy RemoteSigned
+
+#Configure the PowerCLI response to Untrusted Certificates 
+> Set-PowerCLIConfiguration -InvalidCertificateAction Ignore 
+ - option : 
+      Unset  : This is the default value and corresponds to Fail 
+      Fail   : PowerCLI does not establish a connection if a certificate is not valid.
+      Ignore : PowerCLI ingnores certificate validity and establishes a connection. 
+      Warn   : PowerCLI logs a warning message that a certificate is not valid, displays additional information about the certificate, and establishes the connection. 
+      Prompt : if a server certificate is not valid, PowerCLI prompts you to choose an action before it continuses. You can Choose one of the following options. 
+      
+#Create csv file 
+> get-vm | Export-csv -path filename.csv
+
+
+
+VMware PowerCLI Blog                      : https://blogs.vmware.com/PowerCLI//
+VMware PowerCLI - User's Guide            : https://code.vmware.com/docs/13638/powercli-12-3-0-user-s-guide
+VMware PowerCLI - Cmdlet Reference Guide  : https://developer.vmware.com/docs/powercli/latest/products/
+VMware PowerCLI - Compatibility Matrix    : https://vdc-download.vmware.com/vmwb-repository/dcr-public/1f965bde-564c-4593-a63c-b29d2ea3d401/d91027aa-e3ef-4467-a573-d76f66bdb6ac/powercli123-compat-matrix.html
+VMware PowerCLI - GitHub Example Scripts  : https://github.com/vmware/PowerCLI-Example-Scripts/tree/master/Modules
+
